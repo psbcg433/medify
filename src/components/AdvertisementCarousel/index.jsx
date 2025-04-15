@@ -3,16 +3,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import {
   Box,
-  Typography,
-  Button,
   useTheme,
-  Paper,
   Container,
   useMediaQuery,
 } from "@mui/material";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Translate } from "@mui/icons-material";
 
 const AdvertisementCarousel = () => {
   const theme = useTheme();
@@ -23,7 +19,8 @@ const AdvertisementCarousel = () => {
     "/promotions/img1.png",
     "/promotions/img2.png",
     "/promotions/img1.png",
-    "/promotions/img2.png",
+    "/promotions/img2.png"
+
   ];
 
   // Determine slidesPerView based on screen size
