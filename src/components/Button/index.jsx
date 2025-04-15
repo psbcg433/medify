@@ -8,7 +8,7 @@ const CustomButton = ({ buttonText, width = "177px", height = "48px", startIcon 
       variant="contained"
       startIcon={startIcon}
       color="primary"
-      sx={{ color: "white", width: { width }, height: { height }}}
+      sx={{ color: "white", width, height}}
       disableElevation
       disableRipple
     >

@@ -1,6 +1,13 @@
 import React from "react";
 import { useTheme } from "@mui/material/styles";
-import { Box, Container, Grid, Stack, Typography, useMediaQuery } from "@mui/material";
+import {
+  Box,
+  Container,
+  Grid,
+  Stack,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import Navbar from "../../components/Navbar";
 import CustomButton from "../../components/Button";
 import LandingPageSearchBox from "../../components/LandingPageSearchBox";
@@ -11,14 +18,18 @@ const LandingSection = () => {
     <Box
       sx={{
         background: `linear-gradient(115deg, ${theme.palette.secondary.main} 0%, ${theme.palette.secondary.light} 100%)`,
-        height: isMobile ? "auto" : "110vh",
+        height: isMobile ? "130vh" : "110vh",
       }}
     >
       {/* The MenuBar    */}
       <Navbar />
       {/* The Landing Section */}
 
-      <Container>
+      <Container
+        sx={{
+          marginTop: isMobile ? "2em" : "auto",
+        }}
+      >
         <Grid container spacing={2}>
           <Grid size={{ xs: 12, md: 6 }}>
             <Stack
@@ -27,45 +38,54 @@ const LandingSection = () => {
               spacing={5}
               sx={{
                 height: "100%",
-               padding:"2em 0"
+                padding: "2em 0",
               }}
             >
-                <Box>
-              <Typography
-                sx={{
-                  fontFamily: "Poppins",
-                  fontWeight: "medium",
-                  fontSize: "31px",
-                }}
-              >
-                Skip the Travel! Find Online
-              </Typography>
-
-              <Typography
-                sx={{
-                  fontFamily: "Poppins",
-                  fontWeight: "bold",
-                  fontSize: "56px",
-                }}
-              >
-                <Box component="span">Medical</Box>{" "}
-                <Box
-                  component="span"
-                  sx={{ color: theme.palette.primary.main }}
+              <Box>
+                <Typography
+                  sx={{
+                    fontFamily: "Poppins",
+                    fontWeight: "medium",
+                    fontSize: { xs: "1em", sm: "31px" },
+                    textAlign: { xs: "center", sm: "left" },
+                  }}
                 >
-                  Centers
-                </Box>
-              </Typography>
+                  Skip the Travel! Find Online
+                </Typography>
 
-              <Typography variant="subtext">
-                Connect instantly with a 24x7 specialist or choose to video
-                visit a particular doctor.
-              </Typography>
+                <Typography
+                  sx={{
+                    fontFamily: "Poppins",
+                    fontWeight: "bold",
+                    fontSize: { xs: "45px", sm: "56px" },
+                    textAlign: { xs: "center", sm: "left" },
+                  }}
+                >
+                  <Box component="span">Medical</Box>{" "}
+                  <Box
+                    component="span"
+                    sx={{ color: theme.palette.primary.main }}
+                  >
+                    Centers
+                  </Box>
+                </Typography>
+
+                <Typography
+                  variant="subtext"
+                  component="div"
+                  sx={{
+                    fontSize: { xs: "1em", sm: "20px" },
+                    textAlign: { xs: "center", sm: "left" },
+                  }}
+                >
+                  Connect instantly with a 24x7 specialist or choose to video
+                  visit a particular doctor.
+                </Typography>
               </Box>
 
               <CustomButton
                 buttonText="Find Center"
-                width="177px"
+                width={{ xs: "100%", sm: "177px" }}
                 height="48px"
               />
             </Stack>
@@ -87,9 +107,7 @@ const LandingSection = () => {
         </Grid>
       </Container>
 
-      <LandingPageSearchBox/>        
-              
-
+      <LandingPageSearchBox />
     </Box>
   );
 };

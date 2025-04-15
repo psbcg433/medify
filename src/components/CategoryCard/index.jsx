@@ -8,8 +8,8 @@ const CategoryCard = ({imagePath,cardText}) => {
     sx={(theme) => ({
       backgroundColor: theme.palette.background.paper,
       borderRadius: "8px",
-      height: "153px",
-      width: "203px",
+      height: {xs:"120px",sm:"153px"},
+      width: {xs:"150px",sm:"203px"},
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
@@ -26,15 +26,15 @@ const CategoryCard = ({imagePath,cardText}) => {
       src={imagePath}
       alt="Doctor"
       sx={{
-        width: "52.5px",
-        height: "60px",
+        width:{xs:"25px" ,sm:"52.5px"},
+        height: {xs:"28px",sm:"60px"},
         marginBottom: "1em",
       }}
     ></Box>
     <Typography
       sx={{
         fontFamily: "Poppins",
-        fontSize: "18px",
+        fontSize: {xs:"1em",sm:"18px"},
         fontWeight: 400,
       }}
     >

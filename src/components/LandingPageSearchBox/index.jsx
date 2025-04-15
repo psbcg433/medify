@@ -10,7 +10,7 @@ import {
   Box,
   Paper,
 } from "@mui/material";
-import { LocationOnOutlined, SearchOutlined } from "@mui/icons-material";
+import { SearchOutlined } from "@mui/icons-material";
 import { StyledAutocomplete, StyledPaper } from "../StyledComponents";
 import CustomButton from "../Button";
 import { useDispatch, useSelector } from "react-redux";
@@ -120,7 +120,7 @@ const LandingPageSearchBox = () => {
                       position="start"
                       sx={{ color: "background.inputIcons" }}
                     >
-                      <LocationOnOutlined />
+                      <SearchOutlined />
                     </InputAdornment>
                   ),
                 }}
@@ -152,7 +152,7 @@ const LandingPageSearchBox = () => {
                       position="start"
                       sx={{ color: "background.inputIcons" }}
                     >
-                      <LocationOnOutlined />
+                      <SearchOutlined />
                     </InputAdornment>
                   ),
                 }}
