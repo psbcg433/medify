@@ -39,7 +39,7 @@ const AdvertisementCarousel = () => {
           "& .swiper-pagination": {
             position: "absolute",
             bottom: "5px",
-            left: "50%",
+            left: "46%",
             display: "flex",
             alignItems: "center",
             "& .swiper-pagination-bullet": {

@@ -66,7 +66,7 @@ const SpecialistSection = () => {
             "& .swiper-pagination": {
               position: "absolute",
               bottom: "5px",
-              left: "50%",
+              left:'45%',
               display: "flex",
               alignItems: "center",
               "& .swiper-pagination-bullet": {
