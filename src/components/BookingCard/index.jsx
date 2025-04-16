@@ -113,15 +113,15 @@ const BookingCard = ({ hospitalInfo }) => {
     if (slots.length === 0) return null;
 
     return (
-      <Box mt={2} sx={{ padding: "4px" }}>
-        <Typography gutterBottom sx={{ fontFamily: "lato", fontSize: "14px" }}>
+      <Box mt={2} sx={{ padding: "4px", display:'flex', gap:'1em' }}>
+        <Typography gutterBottom sx={{ fontFamily: "lato", fontSize: "16px" , fontWeight:'500', color:theme.palette.text.input}}>
           {title}
         </Typography>
         <Grid container spacing={1}>
           {slots.map((slot, i) => (
             <Grid item key={i}>
               <Button
-                variant={selectedSlot === slot ? "contained" : "outlined"}
+                variant={selectedSlot === slot ? "contained" : "outlined"}          
                 size="small"
                 onClick={() => setSelectedSlot(slot)}
               >
