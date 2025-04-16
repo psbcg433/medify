@@ -1,12 +1,12 @@
 import { Home } from "@mui/icons-material";
-import Navbar from "./components/Navbar";
-import Homepage from "./pages/Homepage";
+import HospitalPage from "./pages/HospitalsPage";
+
 function App() {
   return (
     <>
         
      
-       <Homepage />
+      <HospitalPage/>
     </>
   );
 }

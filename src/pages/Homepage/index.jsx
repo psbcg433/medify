@@ -15,7 +15,6 @@ const Homepage = () => {
     <>
       <LandingSection />
       <AdvertisementCarousel />
- 
       <FindBySpecilization />
       <SpecialistSection />
       <PatientCaringSection />

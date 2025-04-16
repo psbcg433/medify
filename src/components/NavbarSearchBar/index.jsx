@@ -54,7 +54,7 @@ const NavbarSearchBar = () => {
     console.log("SelectedState, selectedCity:", selectedState, selectedCity);
     if (isSearchEnabled) {
       dispatch(fetchCenters({ state: selectedState, city: selectedCity }));
-      console.log('Centers fetched:', centers);
+      // console.log('Centers fetched:', centers);
     }
   }
 
