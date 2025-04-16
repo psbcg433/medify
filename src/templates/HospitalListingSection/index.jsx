@@ -37,6 +37,8 @@ const HospitalListingSection = () => {
               <Box component="img" src="/senosyneadd.png" height="90%" />
             </Box>
           </Grid>
+
+          
         </Grid>
       </Container>
     </Box>

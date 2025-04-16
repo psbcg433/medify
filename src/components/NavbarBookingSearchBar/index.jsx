@@ -79,7 +79,7 @@ const NavbarBookingsSearchBar = () => {
                 {...params}
                 placeholder="Search by Hospital Name"
                 value={inputValue}
-                onChange={handleInputChange}
+                onChange={(e)=>debouncedSearch(e.target.value)}
               />
             )}
             sx={{
