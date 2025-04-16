@@ -1,6 +1,5 @@
 import {
   Box,
-  Button,
   Container,
   Grid,
   InputBase,
@@ -17,8 +16,8 @@ const MobileAppSection = () => {
         background: `linear-gradient(115deg, ${theme.palette.secondary.main} 0%, ${theme.palette.secondary.light} 100%)`,
       }}
     >
-      <Container>
-        <Grid container>
+      <Container sx={{ pb: 0 }}>
+        <Grid container sx={{ pb: 0 }}>
           <Grid
             item
             size={6}
@@ -43,10 +42,27 @@ const MobileAppSection = () => {
             size={6}
             sx={{
               display: "flex",
-              justifyContent: "flex-start",
+              paddingLeft:'2em',
               alignItems: "center",
+              position: "relative",
             }}
           >
+            <Box
+              component="img"
+              src="/Vector.png"
+              alt="Vector icon"
+              sx={{
+             
+                position:'absolute',
+                top:'13em',
+                left:'-1.5em',        
+                width: "8%",
+                height: "22%",
+                borderRadius: "8px",
+                
+              }}
+            />
+
             <Box>
               <Typography
                 variant="h1"
@@ -132,12 +148,20 @@ const MobileAppSection = () => {
                   display: "flex",
                   justifyContent: "flex-start",
                   alignItems: "center",
-                  marginTop:'2em',
-                  gap:'1em'
+                  marginTop: "2em",
+                  gap: "1em",
                 }}
               >
-                <Box component="img" src="/public/google_play.png.png" height="50px"/>
-                <Box component="img" src="/public/apple_store.png.png" height="50px" />
+                <Box
+                  component="img"
+                  src="/public/google_play.png.png"
+                  height="50px"
+                />
+                <Box
+                  component="img"
+                  src="/public/apple_store.png.png"
+                  height="50px"
+                />
               </Box>
             </Box>
           </Grid>

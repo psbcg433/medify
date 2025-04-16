@@ -9,11 +9,13 @@ import FamilySection from "../../templates/FamilySection";
 import FAQSection from "../../templates/FAQSection";
 import MobileAppSection from "../../templates/MobileAppSection";
 import Footer from "../../templates/Footer";
+
 const Homepage = () => {
   return (
     <>
       <LandingSection />
       <AdvertisementCarousel />
+ 
       <FindBySpecilization />
       <SpecialistSection />
       <PatientCaringSection />
