@@ -27,12 +27,13 @@ const locationSlice = createSlice({
     selectedState: '',
     selectedCity: '',
     centers: [],
-    status: 'idle', // status of data fetching
+    status: 'idle',
+    hasSearched: false, // <== NEW FLAG
   },
   reducers: {
     setSelectedState: (state, action) => {
       state.selectedState = action.payload;
-      state.selectedCity = ''; // Reset city when state changes
+      state.selectedCity = '';
     },
     setSelectedCity: (state, action) => {
       state.selectedCity = action.payload;
@@ -40,9 +41,11 @@ const locationSlice = createSlice({
     clearCenters: (state) => {
       state.centers = [];
     },
+    setHasSearched: (state, action) => {
+      state.hasSearched = action.payload;
+    },
   },
   extraReducers: (builder) => {
-    // Handle states fetching
     builder
       .addCase(fetchStates.pending, (state) => {
         state.status = 'loading';
@@ -53,10 +56,8 @@ const locationSlice = createSlice({
       })
       .addCase(fetchStates.rejected, (state) => {
         state.status = 'failed';
-      });
+      })
 
-    // Handle cities fetching
-    builder
       .addCase(fetchCities.pending, (state) => {
         state.status = 'loading';
       })
@@ -66,10 +67,8 @@ const locationSlice = createSlice({
       })
       .addCase(fetchCities.rejected, (state) => {
         state.status = 'failed';
-      });
+      })
 
-    // Handle centers fetching
-    builder
       .addCase(fetchCenters.pending, (state) => {
         state.status = 'loading';
       })
@@ -83,6 +82,11 @@ const locationSlice = createSlice({
   },
 });
 
-export const { setSelectedState, setSelectedCity, clearCenters } = locationSlice.actions;
+export const {
+  setSelectedState,
+  setSelectedCity,
+  clearCenters,
+  setHasSearched
+} = locationSlice.actions;
 
 export default locationSlice.reducer;

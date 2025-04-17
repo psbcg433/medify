@@ -20,44 +20,43 @@ import {
   fetchCenters,
   setSelectedState,
   setSelectedCity,
+  setHasSearched, // Import the new action
 } from "../../features/locationSlice.jsx";
 import CategoryCard from "../CategoryCard/index.jsx";
+import { Link, useNavigate } from "react-router-dom";
 
 const LandingPageSearchBox = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const dispatch = useDispatch();
+  const navigate = useNavigate(); // For navigation
 
-
-
-
-  const { states, cities, selectedState, selectedCity, centers } = useSelector(
+  const { states, cities, selectedState, selectedCity, centers, hasSearched } = useSelector(
     (state) => state.location
   );
 
-
   const categories = [
     {
-        imagePath: "/icons/Doctor.png",
-        cardText: "Doctor",
+      imagePath: "/icons/Doctor.png",
+      cardText: "Doctor",
     },
     {
-        imagePath: "/icons/Labs.png",
-        cardText: "Labs",
+      imagePath: "/icons/Labs.png",
+      cardText: "Labs",
     },
     {
-        imagePath:"/icons/Hospitals.png",
-        cardText: "Hospitals",
+      imagePath: "/icons/Hospitals.png",
+      cardText: "Hospitals",
     },
     {
-        imagePath:"/icons/Medicine.png",
-        cardText: "Medical Store",
+      imagePath: "/icons/Medicine.png",
+      cardText: "Medical Store",
     },
     {
-        imagePath:"/icons/Ambulence.png",
-        cardText: "Ambulance",
-    }
-  ]
+      imagePath: "/icons/Ambulence.png",
+      cardText: "Ambulance",
+    },
+  ];
 
   const isStateSelected = Boolean(selectedState);
   const isCitySelected = Boolean(selectedCity);
@@ -79,18 +78,19 @@ const LandingPageSearchBox = () => {
     console.log("SelectedState, selectedCity:", selectedState, selectedCity);
     if (isSearchEnabled) {
       dispatch(fetchCenters({ state: selectedState, city: selectedCity }));
-      console.log("Centers fetched:", centers);
+      dispatch(setHasSearched(true)); // Set hasSearched to true
+      // Once centers are fetched, navigate to the hospitals page
+      navigate("/hospitals");
     }
   };
 
   return (
-    <Container
-  
-    >
+    <Container>
       <StyledPaper
-      sx={{
-        paddingTop: "3em",
-      }}>
+        sx={{
+          paddingTop: "3em",
+        }}
+      >
         {/* Search Component  */}
         <Stack
           direction={isMobile ? "column" : "row"}
@@ -199,13 +199,13 @@ const LandingPageSearchBox = () => {
             gap: "1em",
           }}
         >
-            {
-                categories.map((category, index) => (
-                    <CategoryCard key={index} cardText={category.cardText} imagePath={category.imagePath}/>
-                ))
-            }
-      
-
+          {categories.map((category, index) => (
+            <CategoryCard
+              key={index}
+              cardText={category.cardText}
+              imagePath={category.imagePath}
+            />
+          ))}
         </Box>
       </StyledPaper>
     </Container>

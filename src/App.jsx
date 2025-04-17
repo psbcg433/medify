@@ -1,12 +1,11 @@
-import { Home } from "@mui/icons-material";
-import BookingPage from "./pages/BookingsPage";
+import { Routes } from "react-router-dom";
+import routes from "./routes/RoutesConfig";
 
 function App() {
   return (
-    <>
-        
-      <BookingPage/>
-    </>
+    <Routes>
+      {routes}
+    </Routes>
   );
 }
 

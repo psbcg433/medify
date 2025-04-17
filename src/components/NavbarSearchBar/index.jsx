@@ -15,7 +15,8 @@ import {
   fetchCities,
   fetchCenters,
   setSelectedState,
-  setSelectedCity
+  setSelectedCity,
+  setHasSearched
 } from '../../features/locationSlice.jsx';
 
 const NavbarSearchBar = () => {
@@ -27,36 +28,29 @@ const NavbarSearchBar = () => {
     states,
     cities,
     selectedState,
-    selectedCity,
-    centers
+    selectedCity
   } = useSelector((state) => state.location);
 
   const isStateSelected = Boolean(selectedState);
   const isCitySelected = Boolean(selectedCity);
   const isSearchEnabled = isStateSelected && isCitySelected;
 
-  // Fetch states initially
   useEffect(() => {
     dispatch(fetchStates());
   }, [dispatch]);
 
-  // Fetch cities whenever the selectedState changes
   useEffect(() => {
     if (isStateSelected) {
       dispatch(fetchCities(selectedState));
     }
   }, [dispatch, selectedState, isStateSelected]);
 
-
-
-
-  const handleFindCenterButton =()=>{
-    console.log("SelectedState, selectedCity:", selectedState, selectedCity);
+  const handleFindCenterButton = () => {
     if (isSearchEnabled) {
       dispatch(fetchCenters({ state: selectedState, city: selectedCity }));
-      // console.log('Centers fetched:', centers);
+      dispatch(setHasSearched(true)); // 👈 trigger "searched" state
     }
-  }
+  };
 
   return (
     <StyledPaper
@@ -76,14 +70,14 @@ const NavbarSearchBar = () => {
         spacing={isMobile ? 2 : 3}
         alignItems="center"
       >
-        {/* STATE Autocomplete */}
         <StyledAutocomplete
           options={states}
           getOptionLabel={(option) => option}
           value={selectedState || null}
           onChange={(event, newValue) => {
             dispatch(setSelectedState(newValue || ''));
-            dispatch(setSelectedCity('')); 
+            dispatch(setSelectedCity(''));
+            dispatch(setHasSearched(false)); // Reset search state
           }}
           renderInput={(params) => (
             <TextField
@@ -98,7 +92,7 @@ const NavbarSearchBar = () => {
                   >
                     <LocationOnOutlined />
                   </InputAdornment>
-                ),
+                )
               }}
             />
           )}
@@ -108,20 +102,19 @@ const NavbarSearchBar = () => {
           }}
         />
 
-        {/* CITY Autocomplete */}
         <StyledAutocomplete
           options={cities}
           getOptionLabel={(option) => option}
           value={selectedCity || null}
           onChange={(event, newValue) => {
             dispatch(setSelectedCity(newValue || ''));
+            dispatch(setHasSearched(false)); // Reset search state
           }}
           disabled={!isStateSelected}
           renderInput={(params) => (
             <TextField
               {...params}
               placeholder="City"
-            
               InputProps={{
                 ...params.InputProps,
                 startAdornment: (
@@ -131,7 +124,7 @@ const NavbarSearchBar = () => {
                   >
                     <LocationOnOutlined />
                   </InputAdornment>
-                ),
+                )
               }}
             />
           )}
@@ -141,7 +134,6 @@ const NavbarSearchBar = () => {
           }}
         />
 
-        {/* SEARCH Button */}
         <CustomButton
           buttonText="Search"
           startIcon={<SearchOutlined />}

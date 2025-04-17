@@ -12,7 +12,7 @@ import HospitalIcon from "@mui/icons-material/LocalHospital";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
 
-const AppointmentCard = () => {
+const AppointmentCard = ({selectedDate,selectedSlot,hospitalInfo}) => {
   return (
     <Card variant="outlined" sx={{ borderRadius: 3, p: 2, maxWidth: 700 }}>
       <Box display="flex" alignItems="center">
@@ -52,24 +52,24 @@ const AppointmentCard = () => {
         >
           <Box>
             <Typography variant="h6" color="primary" fontWeight="bold">
-              Fortis Hospital Richmond Road
+              {hospitalInfo["Hospital Name"]}
             </Typography>
             <Typography
               variant="body2"
               fontWeight="bold"
               color="text.secondary"
             >
-              Banglore, Karnataka
+              {hospitalInfo.City}, {hospitalInfo.State}
             </Typography>
           </Box>
           <Typography variant="body2" color="text.secondary">
-            Smilessence Center for Advanced Dentistry + 1 more
+            {hospitalInfo["Hospital Type"]}, {hospitalInfo["Hospital Ownership"]} + 1 more
           </Typography>
 
           <Chip
             
             icon={<ThumbUpAltIcon sx={{ color: "white" }} />}
-            label="5"
+            label={hospitalInfo["Hospital overall rating"]}
             sx={{
                 width:"5em",
               bgcolor: "#4caf50",
@@ -86,13 +86,13 @@ const AppointmentCard = () => {
         >
           <Stack direction="row" spacing={1}>
             <Chip
-              label="10:30 AM"
+              label={selectedSlot}
               variant="outlined"
               color="primary"
               sx={{ fontWeight: "bold" }}
             />
             <Chip
-              label="20 April 2024"
+              label={selectedDate}
               variant="outlined"
               sx={{
                 bgcolor: "#e8f5e9",

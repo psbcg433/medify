@@ -1,4 +1,3 @@
-// src/components/NavbarBookingsSearchBar.js
 import {
   Stack,
   Typography,
@@ -10,7 +9,10 @@ import { SearchOutlined } from "@mui/icons-material";
 import { StyledAutocomplete, StyledPaper } from "../StyledComponents";
 import CustomButton from "../Button";
 import { useSelector, useDispatch } from "react-redux";
-import { setInputValue, clearInputValue } from "../../features/bookingSearchSlice";
+import {
+  setInputValue,
+  clearInputValue,
+} from "../../features/bookingSearchSlice";
 import useDebounce from "../../hooks/useDebounce";
 
 const NavbarBookingsSearchBar = () => {
@@ -18,6 +20,13 @@ const NavbarBookingsSearchBar = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const dispatch = useDispatch();
   const inputValue = useSelector((state) => state.bookingSearch.inputValue);
+
+  // ✅ Get hospital names from Redux store
+  const fetchedHospital = useSelector(
+    (state) => state.fetchingSavedAppointments.fetchedHospital
+  );
+  const hospitalNames =
+    fetchedHospital?.map((item) => item.hospitalInfo["Hospital Name"]) || [];
 
   // Handle the actual search logic
   const handleSearch = (value) => {
@@ -29,19 +38,15 @@ const NavbarBookingsSearchBar = () => {
     console.log("Search Value:", value);
   };
 
-  // Create a debounced version of the search handler
   const debouncedSearch = useDebounce(handleSearch, 500);
 
-  // Handle input changes
   const handleInputChange = (event) => {
     const value = event.target.value;
-    // Update the input value immediately for responsive UI
     if (value === "") {
       dispatch(clearInputValue());
     } else {
       dispatch(setInputValue(value));
     }
-    // Trigger the debounced search
     debouncedSearch(value);
   };
 
@@ -73,14 +78,25 @@ const NavbarBookingsSearchBar = () => {
           alignItems="center"
         >
           <StyledAutocomplete
-            options={[]} // placeholder for options
+            options={hospitalNames}
+            freeSolo
+            inputValue={inputValue || ""} // Ensure inputValue is never undefined
+            onInputChange={(event, newInputValue, reason) => {
+              if (reason === "input") {
+                dispatch(setInputValue(newInputValue));
+                debouncedSearch(newInputValue);
+              } else if (reason === "clear") {
+                dispatch(clearInputValue());
+              }
+            }}
+            onChange={(event, selectedOption) => {
+              if (selectedOption) {
+                dispatch(setInputValue(selectedOption));
+                debouncedSearch(selectedOption);
+              }
+            }}
             renderInput={(params) => (
-              <TextField
-                {...params}
-                placeholder="Search by Hospital Name"
-                value={inputValue}
-                onChange={(e)=>debouncedSearch(e.target.value)}
-              />
+              <TextField {...params} placeholder="Search by Hospital Name" />
             )}
             sx={{
               width: { xs: "260px", sm: "545px" },
