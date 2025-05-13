@@ -31,43 +31,7 @@
 
 ---
 
-## 📂 Project Structure
 
-```
-src/
-├── components/
-│   ├── Button/
-│   ├── Logo/
-│   ├── Navbar/
-│   │   ├── NavbarBanner.jsx
-│   │   ├── NavbarBookingsSearchBar.jsx
-│   │   ├── NavbarMenu.jsx
-│   │   ├── NavbarSearchBar.jsx
-│   │   └── StyledComponents.jsx
-│   └── ...other shared components
-├── features/
-│   ├── bookingSearchSlice.jsx
-│   ├── fetchedAppointmentSlice.jsx
-│   └── locationSlice.jsx
-├── pages/
-│   ├── BookingsPage.jsx
-│   ├── Homepage.jsx
-│   └── HospitalsPage.jsx
-├── templates/
-│   ├── BlogSection.jsx
-│   ├── FAQSection.jsx
-│   ├── FamilySection.jsx
-│   ├── FindBySpecilization.jsx
-│   ├── Footer.jsx
-│   ├── HospitalBookings.jsx
-│   ├── HospitalListingSection.jsx
-│   ├── LandingSection.jsx
-│   ├── MobileAppSection.jsx
-│   ├── PatientCaringSection.jsx
-│   └── SpecialistSection.jsx
-├── store.js
-└── routes/
-```
 
 ---
 
