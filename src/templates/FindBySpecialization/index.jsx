@@ -67,6 +67,7 @@ const FindBySpecilization = () => {
               marginTop: "1em",
               color: theme.palette.secondary.dark,
               textAlign: "center",
+              fontSize:{xs:'2em',md:'3em'}
             }}
           >
             Find By Specialisation
@@ -78,6 +79,14 @@ const FindBySpecilization = () => {
                 item
                 size={{ xs: 6, sm: 6, md: 3 }}
                 key={item.image}
+                sx={
+                  {
+                  
+                    display:'flex',
+                    justifyContent:'center',
+                    alignItems:'center'
+                  }
+                }
               >
                     <CategoryCard imagePath={item.image} cardText={item.type}/>
               </Grid>

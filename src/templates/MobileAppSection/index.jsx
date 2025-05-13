@@ -1,10 +1,4 @@
-import {
-  Box,
-  Container,
-  Grid,
-  InputBase,
-  Typography,
-} from "@mui/material";
+import { Box, Container, Grid, InputBase, Typography } from "@mui/material";
 import React from "react";
 import theme from "../../theme";
 import CustomButton from "../../components/Button";
@@ -20,7 +14,7 @@ const MobileAppSection = () => {
         <Grid container sx={{ pb: 0 }}>
           <Grid
             item
-            size={6}
+            size={{ xs: 0, md: 6 }}
             sx={{
               marginTop: "2em",
             }}
@@ -39,12 +33,13 @@ const MobileAppSection = () => {
           </Grid>
           <Grid
             item
-            size={6}
+            size={{ xs: 12, md: 6 }}
             sx={{
               display: "flex",
-              paddingLeft:'2em',
+              paddingLeft: "2em",
               alignItems: "center",
               position: "relative",
+              padding:{xs:'2em'}
             }}
           >
             <Box
@@ -52,14 +47,13 @@ const MobileAppSection = () => {
               src="/Vector.png"
               alt="Vector icon"
               sx={{
-             
-                position:'absolute',
-                top:'13em',
-                left:'-1.5em',        
+                display:{xs:'none',md:'block'},
+                position: "absolute",
+                top: "13em",
+                left: "-1.5em",
                 width: "8%",
                 height: "22%",
                 borderRadius: "8px",
-                
               }}
             />
 
@@ -68,6 +62,7 @@ const MobileAppSection = () => {
                 variant="h1"
                 sx={{
                   color: theme.palette.secondary.dark,
+                   fontSize:{xs:'2em',md:'3em'}
                 }}
               >
                 Download the
@@ -76,6 +71,7 @@ const MobileAppSection = () => {
                 variant="h1"
                 sx={{
                   marginTop: "2px",
+                  fontSize:{xs:'2em',md:'3em'}
                 }}
               >
                 <Typography
@@ -97,6 +93,7 @@ const MobileAppSection = () => {
                   color: theme.palette.text.secondary,
                   marginTop: "1.5em",
                   lineHeight: "1.5em",
+                  fontSize:{xs:'12px',md:'16px'}
                 }}
               >
                 Get the link to download the app
@@ -111,6 +108,7 @@ const MobileAppSection = () => {
                   backgroundColor: "#f9fbff",
                   marginTop: "1em",
                   borderRadius: 2,
+                  width:{xs:'85%',md:'100%'}
                 }}
               >
                 <Box

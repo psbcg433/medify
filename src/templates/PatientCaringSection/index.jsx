@@ -7,7 +7,6 @@ import {
   ListItemIcon,
   Typography,
 } from "@mui/material";
-import React from "react";
 import theme from "../../theme";
 import VerifiedIcon from "@mui/icons-material/Verified";
 
@@ -15,13 +14,13 @@ const PatientCaringSection = () => {
   return (
     <Box
       sx={{
-        padding:'2em',
+        padding: "2em",
         background: `linear-gradient(115deg, ${theme.palette.secondary.main} 0%, ${theme.palette.secondary.light} 100%)`,
       }}
     >
       <Container>
         <Grid container sx={{ marginTop: "4em" }}>
-          <Grid item size={6}>
+          <Grid item size={{ xs: 12, md: 6 }}>
             <Box
               component="img"
               src="/gorupedImage.png"
@@ -36,7 +35,7 @@ const PatientCaringSection = () => {
           </Grid>
           <Grid
             item
-            size={6}
+            size={{ xs: 12, md: 6 }}
             sx={{
               display: "flex",
               justifyContent: "flex-start",
@@ -48,7 +47,7 @@ const PatientCaringSection = () => {
               <Typography
                 variant="subtext"
                 sx={{
-                  fontSize: "18px",
+                  fontSize: { xs: "12px", md: "18px" },
                   color: theme.palette.primary.dark,
                   fontWeight: "500",
                 }}
@@ -63,13 +62,19 @@ const PatientCaringSection = () => {
               >
                 <Typography
                   variant="span"
-                  sx={{ color: theme.palette.secondary.dark }}
+                  sx={{
+                    color: theme.palette.secondary.dark,
+                    fontSize: { xs: "0.8em", md: "1em" },
+                  }}
                 >
                   Patient{" "}
                 </Typography>
                 <Typography
                   variant="span"
-                  sx={{ color: theme.palette.primary.dark }}
+                  sx={{
+                    color: theme.palette.primary.dark,
+                    fontSize: { xs: "0.8em", md: "1em" },
+                  }}
                 >
                   Caring
                 </Typography>
@@ -80,6 +85,7 @@ const PatientCaringSection = () => {
                   color: theme.palette.text.secondary,
                   marginTop: "1.5em",
                   lineHeight: "1.5em",
+                  
                 }}
               >
                 Our goal is to deliver quality of care in a courteous,
@@ -97,7 +103,10 @@ const PatientCaringSection = () => {
                   <ListItemIcon sx={{ minWidth: 32 }}>
                     <VerifiedIcon sx={{ color: theme.palette.primary.dark }} />
                   </ListItemIcon>
-                  <Typography variant="body1">
+                  <Typography
+                    variant="body1"
+                    sx={{ fontSize: { xs: "14px", md: "18px" } }}
+                  >
                     Stay Updated About Your Health
                   </Typography>
                 </ListItem>
@@ -111,7 +120,10 @@ const PatientCaringSection = () => {
                   <ListItemIcon sx={{ minWidth: 32 }}>
                     <VerifiedIcon sx={{ color: theme.palette.primary.dark }} />
                   </ListItemIcon>
-                  <Typography variant="body1">
+                  <Typography
+                    variant="body1"
+                    sx={{ fontSize: { xs: "14px", md: "18px" } }}
+                  >
                     Check Your Results Online
                   </Typography>
                 </ListItem>
@@ -125,7 +137,10 @@ const PatientCaringSection = () => {
                   <ListItemIcon sx={{ minWidth: 32 }}>
                     <VerifiedIcon sx={{ color: theme.palette.primary.dark }} />
                   </ListItemIcon>
-                  <Typography variant="body1">
+                  <Typography
+                    variant="body1"
+                    sx={{ fontSize: { xs: "14px", md: "18px" } }}
+                  >
                     Manage Your Appointments
                   </Typography>
                 </ListItem>

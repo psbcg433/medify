@@ -55,6 +55,7 @@ const FAQSection = () => {
           sx={{
             color: theme.palette.primary.dark,
             textAlign: "center",
+            fontSize:{xs:'12px',md:'16px'}
           }}
         >
           Get Your Answer
@@ -65,18 +66,19 @@ const FAQSection = () => {
           sx={{
             color: theme.palette.secondary.dark,
             textAlign: "center",
+            fontSize:{xs:'1.4em',md:'3em'}
           }}
         >
           Frequently Asked Questions
         </Typography>
         <Grid container>
-          <Grid item size={6}>
+          <Grid item size={{xs:12,md:6}}>
             <Box
               component="img"
               src="/FAQ.png"
               alt="Patient Care Image"
               sx={{
-                width: "90%",
+                width: {xs:'100%',md:'90%'},
                 height: "auto",
                 borderRadius: "8px",
                 objectFit: "cover",
@@ -85,12 +87,12 @@ const FAQSection = () => {
           </Grid>
           <Grid
             item
-            size={6}
+            size={{xs:12,md:6}}
             sx={{
               display: "flex",
-              justifyContent: "flex-start",
+              justifyContent: {xs:"center",md:"flex-start"},
               alignItems: "center",
-              padding: "1em",
+              padding: {md:'1em'},
             }}
           >
             <Box

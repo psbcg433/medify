@@ -51,6 +51,7 @@ const SpecialistSection = () => {
             textAlign: "center",
             margin: "1em 0",
             color: theme.palette.secondary.dark,
+            fontSize:{xs:'2em',md:'3em'}
           }}
         >
           Our Medical Specialist

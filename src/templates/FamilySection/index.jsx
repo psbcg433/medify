@@ -22,29 +22,34 @@ const FamilySection = () => {
         <Grid container>
           <Grid
             item
-            size={6}
+            size={{xs:12,md:6}}
             sx={{
               display: "flex",
               justifyContent: "flex-start",
               alignItems: "center",
+              padding:{xs:'2em',md:'auto'}
             }}
           >
             <Box>
               <Typography
                 variant="subtext"
                 sx={{
-                  fontSize: "18px",
+                  fontSize: {xs:'12px',md:'18px'},
                   color: theme.palette.primary.dark,
                   fontWeight: "500",
+            
+                  
                 }}
               >
-                CARING FOR THE HEALTH OF YOU AND YOUR FAMILY.
+                CARING FOR THE HEALTH OF YOU AND YOUR FAMILY
               </Typography>
               <Typography
                 variant="h1"
                 sx={{
                   marginTop: "2px",
                   color: theme.palette.secondary.dark,
+                    fontSize:{xs:'2em',md:'3em'},
+                   
                 }}
               >
                 Our Families
@@ -66,11 +71,11 @@ const FamilySection = () => {
             </Box>
           </Grid>
 
-          <Grid item size={6}
+          <Grid  item  size={{xs:12,md:6}}
           sx={{
 
             display:'flex',
-            justifyContent:'flex-end',
+            justifyContent:{xs:'center',md:'flex-end'},
             alignItems:'center'
           }}
           >
@@ -79,7 +84,8 @@ const FamilySection = () => {
               src="/widgets.png"
               alt="Patient Care Image"
               sx={{
-                width: "80%",
+                
+                width: {xs:'100%',md:'80%'},
                 height: "auto",
                 borderRadius: "8px",
                 objectFit: "cover",

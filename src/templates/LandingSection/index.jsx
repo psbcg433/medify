@@ -18,16 +18,17 @@ const LandingSection = () => {
     <Box
       sx={{
         background: `linear-gradient(115deg, ${theme.palette.secondary.main} 0%, ${theme.palette.secondary.light} 100%)`,
-        height: isMobile ? "130vh" : "110vh",
+        height: isMobile ? "130vh" : "85vh",
       }}
     >
       {/* The MenuBar    */}
-      <Navbar />
+      {/* <Navbar /> */}
       {/* The Landing Section */}
 
       <Container
         sx={{
           marginTop: isMobile ? "2em" : "auto",
+          paddingTop: isMobile ? "auto" : "2em",
         }}
       >
         <Grid container spacing={2}>

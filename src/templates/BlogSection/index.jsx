@@ -41,6 +41,7 @@ const BlogSection = () => {
           sx={{
             color: theme.palette.primary.dark,
             textAlign: "center",
+            fontSize:{xs:'12px',md:'16px'}
           }}
         >
           Blog & News
@@ -51,13 +52,14 @@ const BlogSection = () => {
           sx={{
             color: theme.palette.secondary.dark,
             textAlign: "center",
+              fontSize:{xs:'1.5em',md:'3em'}
           }}
         >
           Read Our Latest News
         </Typography>
-        <Grid container sx={{ marginTop: "2em" }}>
+        <Grid container sx={{ marginTop: "2em" , gap:{xs:'1em',md:0}}}>
           {blogposts.map((blogdata) => (
-            <Grid item size={4}>
+            <Grid item size={{xs:12,md:4}}>
               <Card
                 elevation={0}
                 sx={{ maxWidth: 345, borderRadius: 2, boxShadow: 3 }}

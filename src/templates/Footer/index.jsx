@@ -30,7 +30,7 @@ const Footer = () => {
         {/* Logo + Social */}
         <Grid
           item
-          size={3}
+          size={{xs:12,md:3}}
           sx={{
             height: "`150px",
             display: "flex",
@@ -60,7 +60,7 @@ const Footer = () => {
 
         {/* Link Columns */}
         {footerLinks.map((column, index) => (
-          <Grid key={index} item size={3}>
+          <Grid key={index} item size={{xs:4,md:3}} sx={{marginTop:{xs:'12px',md:0}}}>
             {column.map((text, i) => (
               <Box key={i} display="flex" alignItems="center" mb={1}>
                 <ChevronRight fontSize="small" />

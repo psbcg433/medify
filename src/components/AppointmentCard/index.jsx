@@ -68,7 +68,7 @@ const AppointmentCard = ({selectedDate,selectedSlot,hospitalInfo}) => {
 
           <Chip
             
-            icon={<ThumbUpAltIcon sx={{ color: "white" }} />}
+            icon={<ThumbUpAltIcon sx={{ color: "#fff" }} />}
             label={hospitalInfo["Hospital overall rating"]}
             sx={{
                 width:"5em",
